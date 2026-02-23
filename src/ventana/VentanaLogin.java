@@ -54,7 +54,8 @@ public class VentanaLogin extends JFrame{
 		JLabel lblPassword = new JLabel("Contraseña:");
 		lblPassword.setBounds(100, 170, 200, 30);
 		lblPassword.setFont(new Font("Arial", Font.BOLD, 18));
-		lblPassword.setForeground(Color.WHITE); contenedor.add(lblPassword);
+		lblPassword.setForeground(Color.WHITE); 
+		contenedor.add(lblPassword);
 		JPasswordField password = new JPasswordField();
 		password.setBounds(100, 200, 300, 30);
 		password.setFont(new Font("Arial", Font.PLAIN, 18));
@@ -78,7 +79,7 @@ public class VentanaLogin extends JFrame{
 
 		// Botón
 		JButton acceder = new JButton("Acceder");
-		acceder.setBounds(160, 350, 180, 50);
+		acceder.setBounds(160, 300, 180, 50);
 		acceder.setFont(new Font("Arial", Font.BOLD, 22));
 		contenedor.add(acceder);
 		

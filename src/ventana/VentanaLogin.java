@@ -4,6 +4,8 @@ package ventana;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -13,6 +15,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -120,6 +123,43 @@ public class VentanaLogin extends JFrame{
 		acceder.setForeground(Color.white);
 		acceder.setBackground(Color.decode("#6A5ACD"));
 		contenedor.add(acceder);
+		
+		acceder.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String hardUser = "usuario@correo.com";
+		        String hardPass = "12345";
+				
+				String username_val=username.getText();
+				String userpass_val=new String(password.getPassword());
+				if(username_val.equals("")) {
+					username.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+				}
+				else
+					username.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
+				
+				if(userpass_val.equals("")) {
+					password.setBorder(BorderFactory.createLineBorder(Color.red, 3, true));
+				}
+				else
+					password.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
+				
+				if(username_val.equals(hardUser) && userpass_val.equals(hardPass)) {
+		            JOptionPane.showMessageDialog(contenedor,
+		                "Bienvenido " + username_val,
+		                "Login exitoso",
+		                JOptionPane.INFORMATION_MESSAGE);
+		        } else {
+		            JOptionPane.showMessageDialog(contenedor,
+		                "Usuario o contraseña incorrectos",
+		                "Error de login",
+		                JOptionPane.ERROR_MESSAGE);
+		        }
+				
+			}
+		});
 		
 		// Texto y botón Registrarse 
 		JLabel lblNoAccount = new JLabel("¿No tienes una cuenta?"); 
